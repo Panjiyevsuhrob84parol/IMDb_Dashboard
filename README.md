@@ -1,61 +1,62 @@
 ﻿# 🎬 IMDb Top Movies Dashboard
 
-Interactive **data analysis & visualization web app** built with **Streamlit**, based on IMDb Top Movies dataset.
+**Streamlit** yordamida yaratilgan interaktiv **ma’lumotlarni tahlil qilish va vizualizatsiya qilish** web-ilovasi.  
+Ilova IMDb Top filmlar dataseti asosida qurilgan.
 
-This project analyzes top-rated movies using real IMDb data and presents insights through clean, interactive charts and tables.
-
----
-
-## 🚀 Live Preview
-https://imdb-dashboard-suhrob.streamlit.app/
+Ushbu loyiha real IMDb ma’lumotlari yordamida eng yuqori reytingli filmlarni tahlil qiladi va ularni chiroyli, tushunarli grafiklar va jadvallar orqali ko‘rsatadi.
 
 ---
 
-## 📊 Dataset Overview
+## 🚀 Live Preview (Jonli ko‘rish)
 
-The dataset contains information about **Top 1000 IMDb movies**, including:
-
-- 🎞️ Movie title & original title  
-- ⭐ IMDb rating  
-- 🗳️ Number of votes  
-- 📅 Release year & date  
-- ⏱️ Runtime (minutes)  
-- 🎭 Genres  
-- 🎬 Directors  
+👉 https://imdb-dashboard-suhrob.streamlit.app/
 
 ---
 
-## 🔍 Analysis Performed
+## 📊 Dataset haqida
 
-The app includes the following analyses:
+Dataset **IMDb Top 1000 ta film** haqidagi quyidagi ma’lumotlarni o‘z ichiga oladi:
 
-### ⭐ IMDb Rating Distribution
-- Shows how movie ratings are distributed
-- Helps understand rating concentration
-
-### 📅 Movies by Year
-- Number of movies released per year
-- Reveals peak periods in cinema history
-
-### 🏆 Top 10 Highest Rated Movies
-- Based on IMDb rating
-- Displays the most critically acclaimed movies
-
-### 📊 Rating vs Votes Correlation
-- Analyzes the relationship between IMDb rating and number of votes
-- Helps understand popularity vs quality
-
-### 🎭 Genre Analysis
-- Most common genres among top movies
-- Genre frequency visualization
-
-### ⏱️ Runtime Analysis
-- Average movie duration
-- Distribution of movie lengths
+- 🎞️ Film nomi va original nomi  
+- ⭐ IMDb reytingi  
+- 🗳️ Ovozlar (votes) soni  
+- 📅 Chiqarilgan yil va sana  
+- ⏱️ Film davomiyligi (daqiqalarda)  
+- 🎭 Janrlar  
+- 🎬 Rejissyor(lar)  
 
 ---
 
-## 🛠️ Technologies Used
+## 🔍 Bajarilgan tahlillar
+
+Ilovada quyidagi analizlar amalga oshirilgan:
+
+### ⭐ IMDb reytinglar taqsimoti
+- Filmlar reytinglari qanday taqsimlanganini ko‘rsatadi  
+- Yuqori va past reytinglar zichligini tahlil qiladi  
+
+### 📅 Yillar bo‘yicha filmlar soni
+- Har bir yil nechta top film chiqqanini ko‘rsatadi  
+- Kino tarixidagi eng faol davrlarni aniqlashga yordam beradi  
+
+### 🏆 Eng yuqori reytingli Top 10 filmlar
+- IMDb reytingiga asoslangan  
+- Eng mashhur va eng yuqori baholangan filmlar ro‘yxati  
+
+### 📊 Reyting va ovozlar soni o‘rtasidagi bog‘liqlik
+- Film sifati (reyting) va mashhurligi (ovozlar soni) o‘rtasidagi aloqani tahlil qiladi  
+
+### 🎭 Janrlar tahlili
+- Eng ko‘p uchraydigan janrlar  
+- Janrlar bo‘yicha taqsimot vizualizatsiyasi  
+
+### ⏱️ Film davomiyligi tahlili
+- O‘rtacha film davomiyligi  
+- Film uzunliklari taqsimoti  
+
+---
+
+## 🛠️ Ishlatilgan texnologiyalar
 
 - **Python**
 - **Streamlit**
@@ -65,38 +66,38 @@ The app includes the following analyses:
 
 ---
 
-## 📁 Project Structure
+## 📁 Loyiha tuzilishi
 
 ```text
 IMDb_Dashboard/
 │
-├─ app.py                 # Main Streamlit app
+├─ app.py                 # Asosiy Streamlit ilova
 ├─ top_1000ta_kino.csv    # Dataset
-├─ requirements.txt       # Dependencies
-└─ README.md              # Project documentation
+├─ requirements.txt       # Kutubxonalar ro‘yxati
+└─ README.md              # Loyiha hujjati
+```
+▶️ Lokal kompyuterda ishga tushirish
 
-▶️ How to Run Locally
-
-1. Clone the repository:
+1. Repository’ni klon qiling:
 
 git clone https://github.com/USERNAME/IMDb_Dashboard.git
 
 
-2. Navigate to project folder:
+2. Loyiha papkasiga o‘ting:
 
 cd IMDb_Dashboard
 
 
-3. Install dependencies:
+3. Kerakli kutubxonalarni o‘rnating:
 
 pip install -r requirements.txt
 
 
-4. Run Streamlit app:
+4. Streamlit ilovani ishga tushiring:
 
 streamlit run app.py
 
- ## 👨‍💻 Developers
+👨‍💻 Dasturchilar
 
 Suhrob Panjiyev
 Python • Data Analysis • Streamlit
@@ -108,5 +109,4 @@ Saidov Alisher
 Python • Data Analysis • Streamlit • AI
 
 S Sarvara
-
 Python • Data Analysis • Streamlit • AI
