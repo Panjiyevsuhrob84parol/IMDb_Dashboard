@@ -206,29 +206,37 @@ st.markdown("""
 📌 **Tahlil:**  
 Ayrim o‘n yilliklar kino tarixida eng samarali davr bo‘lganini ko‘rish mumkin.
 """)
-
-
 # _____________________________________________________________________________________________________________________
 
 st.sidebar.markdown("---")
 
 with st.sidebar.expander("👨‍💻 Developers"):
     st.markdown("""
-    **Suhrob Panjiyev**  
-    Python • Data Analysis • Streamlit  
-
-    🔗 [GitHub](https://github.com/USERNAME)  
-    📬 [Telegram](https://t.me/USERNAME)
-    🎛️ [Instagram](https://instagram.com/suhrob_panjiyev_)
-    """)
-    st.markdown("""
-    **Aliyev Vali**  
-    Python • Data Analysis • Streamlit • AI
-
-    🔗 [GitHub](https://github.com/USERNAME)  
-    📬 [Telegram](https://t.me/USERNAME)
-    🎛️ [Instagram](https://instagram.com/suhrob_panjiyev_)
-    """)
+> **👤 Suhrob Panjiyev**  
+> _Python • Data Analysis • Streamlit_  
+> 🔗 [GitHub](https://github.com/Panjiyevsuhrob84parol)  
+> 📬 [Telegram](https://t.me/atlet_bro)  
+> 🎛️ [Instagram](https://instagram.com/suhrob_panjiyev_)
+---
+> **👤 Komilova Charos**  
+> _Python • Data Analysis • Streamlit • AI_  
+> 🔗 [GitHub](https://github.com/USERNAME)  
+> 📬 [Telegram](https://t.me/USERNAME)  
+> 🎛️ [Instagram](https://instagram.com/USERNAME)
+---
+> **👤 Saidov Alisher**  
+> _Python • Data Analysis • Streamlit • AI_  
+> 🔗 [GitHub](https://github.com/USERNAME)  
+> 📬 [Telegram](https://t.me/USERNAME)  
+> 🎛️ [Instagram](https://instagram.com/USERNAME)
+---
+> **👤 S Sarvara**  
+> _Python • Data Analysis • Streamlit • AI_  
+> 🔗 [GitHub](https://github.com/USERNAME)  
+> 📬 [Telegram](https://t.me/USERNAME)  
+> 🎛️ [Instagram](https://instagram.com/USERNAME)
+""")
+# ___________________________________________________________________________________________________________________
 
     st.markdown("---")
 st.subheader("📝 Umumiy Xulosa (Summary)")
