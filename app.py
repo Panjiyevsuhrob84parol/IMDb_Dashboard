@@ -221,19 +221,19 @@ with st.sidebar.expander("👨‍💻 Developers"):
 > **👤 Komilova Charos**  
 > _Python • Data Analysis • Streamlit • AI_  
 > 🔗 [GitHub](https://github.com/USERNAME)  
-> 📬 [Telegram](https://t.me/USERNAME)  
+> 📬 [Telegram](https://t.me/Charos123340)  
 > 🎛️ [Instagram](https://instagram.com/USERNAME)
 ---
 > **👤 Saidov Alisher**  
 > _Python • Data Analysis • Streamlit • AI_  
 > 🔗 [GitHub](https://github.com/USERNAME)  
-> 📬 [Telegram](https://t.me/USERNAME)  
+> 📬 [Telegram](https://t.me/Saidov_1004)  
 > 🎛️ [Instagram](https://instagram.com/USERNAME)
 ---
-> **👤 S Sarvara**  
+> **👤 S. Sarvara**  
 > _Python • Data Analysis • Streamlit • AI_  
 > 🔗 [GitHub](https://github.com/USERNAME)  
-> 📬 [Telegram](https://t.me/USERNAME)  
+> 📬 [Telegram](https://t.me/Hadria1300)  
 > 🎛️ [Instagram](https://instagram.com/USERNAME)
 """)
 # ___________________________________________________________________________________________________________________
