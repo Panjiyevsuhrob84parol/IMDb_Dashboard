@@ -99,14 +99,7 @@ streamlit run app.py
 
 👨‍💻 Dasturchilar
 
-Suhrob Panjiyev
-Python • Data Analysis • Streamlit
-
-Komilova Charos
-Python • Data Analysis • Streamlit • AI
-
-Saidov Alisher
-Python • Data Analysis • Streamlit • AI
-
-S Sarvara
-Python • Data Analysis • Streamlit • AI
+✅ Suhrob Panjiyev
+✅ Komilova Charos
+✅ Saidov Alisher
+✅ S Sarvara
