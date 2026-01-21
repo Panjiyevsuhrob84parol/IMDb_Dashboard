@@ -100,6 +100,10 @@ streamlit run app.py
 👨‍💻 Dasturchilar
 
 ✅ Suhrob Panjiyev
+
 ✅ Komilova Charos
+
 ✅ Saidov Alisher
+
 ✅ S Sarvara
+
