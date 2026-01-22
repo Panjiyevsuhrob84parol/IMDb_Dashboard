@@ -531,13 +531,13 @@ Python • Data Analysis • Streamlit • AI<br>
 <hr>
 <b>👤 Saidov Alisher</b><br>
 Python • Data Analysis • Streamlit • AI<br>
-<a href="https://github.com/USERNAME" target="_blank">
+<a href="https://github.com/Saidov-Alisher" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" width="20"> GitHub
 </a> &nbsp; 
 <a href="https://t.me/Saidov_1004" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" width="20"> Telegram
 </a> &nbsp; 
-<a href="https://instagram.com/USERNAME" target="_blank">
+<a href="https://instagram.com/saidov_1004" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="20"> Instagram
 </a>
 <hr>
