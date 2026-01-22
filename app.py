@@ -468,35 +468,93 @@ Bu davrlar kino sanoatining eng faol va samarali bosqichlari ekanini ko‘rsatad
 
 # _____________________________________________________________________________________________________________________
 
+# st.sidebar.markdown("---")
+
+# with st.sidebar.expander("👨‍💻 Developers"):
+#     st.markdown("""
+# > **👤 Suhrob Panjiyev**  
+# > _Python • Data Analysis • Streamlit_  
+# > 🔗 [GitHub](https://github.com/Panjiyevsuhrob84parol)  
+# > 📬 [Telegram](https://t.me/atlet_bro)  
+# > 🎛️ [Instagram](https://instagram.com/suhrob_panjiyev_)
+# ---
+# > **👤 Komilova Charos**  
+# > _Python • Data Analysis • Streamlit • AI_  
+# > 🔗 [GitHub](https://github.com/USERNAME)  
+# > 📬 [Telegram](https://t.me/Charos123340)  
+# > 🎛️ [Instagram](https://instagram.com/USERNAME)
+# ---
+# > **👤 Saidov Alisher**  
+# > _Python • Data Analysis • Streamlit • AI_  
+# > 🔗 [GitHub](https://github.com/USERNAME)  
+# > 📬 [Telegram](https://t.me/Saidov_1004)  
+# > 🎛️ [Instagram](https://instagram.com/USERNAME)
+# ---
+# > **👤 Samadova Sarvara**  
+# > _Python • Data Analysis • Streamlit • AI_  
+# > 🔗 [GitHub](https://github.com/USERNAME)  
+# > 📬 [Telegram](https://t.me/Hadria1300)  
+# > 🎛️ [Instagram](https://instagram.com/USERNAME)
+# """)
+    
+
+# ***************************************************************************
+
 st.sidebar.markdown("---")
 
 with st.sidebar.expander("👨‍💻 Developers"):
     st.markdown("""
-> **👤 Suhrob Panjiyev**  
-> _Python • Data Analysis • Streamlit_  
-> 🔗 [GitHub](https://github.com/Panjiyevsuhrob84parol)  
-> 📬 [Telegram](https://t.me/atlet_bro)  
-> 🎛️ [Instagram](https://instagram.com/suhrob_panjiyev_)
----
-> **👤 Komilova Charos**  
-> _Python • Data Analysis • Streamlit • AI_  
-> 🔗 [GitHub](https://github.com/USERNAME)  
-> 📬 [Telegram](https://t.me/Charos123340)  
-> 🎛️ [Instagram](https://instagram.com/USERNAME)
----
-> **👤 Saidov Alisher**  
-> _Python • Data Analysis • Streamlit • AI_  
-> 🔗 [GitHub](https://github.com/USERNAME)  
-> 📬 [Telegram](https://t.me/Saidov_1004)  
-> 🎛️ [Instagram](https://instagram.com/USERNAME)
----
-> **👤 Samadova Sarvara**  
-> _Python • Data Analysis • Streamlit • AI_  
-> 🔗 [GitHub](https://github.com/USERNAME)  
-> 📬 [Telegram](https://t.me/Hadria1300)  
-> 🎛️ [Instagram](https://instagram.com/USERNAME)
-""")
-    
+<div style="line-height:1.8; font-size:14px;">
+<b>👤 Suhrob Panjiyev</b><br>
+Python • Data Analysis • Streamlit<br>
+<a href="https://github.com/Panjiyevsuhrob84parol" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" width="20"> GitHub
+</a> &nbsp; 
+<a href="https://t.me/atlet_bro" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" width="20"> Telegram
+</a> &nbsp; 
+<a href="https://instagram.com/suhrob_panjiyev_" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="20"> Instagram
+</a>
+<hr>
+<b>👤 Komilova Charos</b><br>
+Python • Data Analysis • Streamlit • AI<br>
+<a href="https://github.com/USERNAME" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" width="20"> GitHub
+</a> &nbsp; 
+<a href="https://t.me/Charos123340" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" width="20"> Telegram
+</a> &nbsp; 
+<a href="https://instagram.com/USERNAME" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="20"> Instagram
+</a>
+<hr>
+<b>👤 Saidov Alisher</b><br>
+Python • Data Analysis • Streamlit • AI<br>
+<a href="https://github.com/USERNAME" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" width="20"> GitHub
+</a> &nbsp; 
+<a href="https://t.me/Saidov_1004" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" width="20"> Telegram
+</a> &nbsp; 
+<a href="https://instagram.com/USERNAME" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="20"> Instagram
+</a>
+<hr>
+<b>👤 Samadova Sarvara</b><br>
+Python • Data Analysis • Streamlit • AI<br>
+<a href="https://github.com/USERNAME" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" width="20"> GitHub
+</a> &nbsp; 
+<a href="https://t.me/Hadria1300" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" width="20"> Telegram
+</a> &nbsp; 
+<a href="https://instagram.com/USERNAME" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" width="20"> Instagram
+</a>
+</div>
+""", unsafe_allow_html=True)
+
 
 # ___________________________________________________________________________________________________________________
 
@@ -531,3 +589,26 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
+
+# 55555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
+
+
+
+st.sidebar.markdown("---")
+
+st.sidebar.image(
+    "logo_brand.png",
+    use_container_width=True
+)
+
+st.sidebar.markdown("""
+<div style="text-align:center; font-size:14px; color:gray;">
+<b>AI TEAM</b><br>
+Data • Streamlit • AI
+</div>
+""", unsafe_allow_html=True)
+
+
+
