@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
+
 
 # Sahifa sozlamaraniki
 st.set_page_config(
@@ -18,8 +20,23 @@ st.markdown("IMDb Top kinolar ma’lumotlari asosida interaktiv tahlil")
 @st.cache_data  # “Agar data o‘zgarmagan bo‘lsa, qayta o‘qima, tez ishlat” , Streamlitga shunaqa deb aytadi.
 def malumotlar():
     df = pd.read_csv("top_1000ta_kino.csv")
+    # Keraksiz ustunlarni olib tashlash
+    columns_to_drop = [
+        "Position",
+        "Const",
+        "Modified",
+        "Created",
+        "Description",
+        "Original Title",
+        "URL",
+        "Title Type",
+        "Release Date"
+    ]
+    df = df.drop(columns=columns_to_drop)
     return df
 df = malumotlar()
+
+
 
 # Yon panel filtrlari
 st.sidebar.header("🎛 Filterlar")
@@ -66,6 +83,11 @@ col3.metric("🗳 Jami ovozlar", f"{filtered_df['Num Votes'].sum():,}")
 # Grafiklar
 st.markdown("---")
 
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 col_left, col_right = st.columns(2)
 
 # Reytingni taqsimlash
@@ -79,9 +101,13 @@ with col_left:
 
     st.markdown("""
     📌 **Tahlil:**  
-    Grafikdan ko‘rinib turibdiki, filmlarning katta qismi yuqori IMDb reytinglariga ega.  
-    Bu dataset asosan sifatli va mashhur filmlardan tashkil topganini ko‘rsatadi.
+    Grafikdan ko‘rinib turibdiki, filmlarning katta qismi **IMDb 7.5–9.0** oralig‘ida joylashgan.  
+    Bu dataset tasodifiy filmlar emas, balki **eng sifatli va mashhur filmlar**dan tuzilganini ko‘rsatadi.  
+    Past reytingli filmlarning kamligi IMDb Top ro‘yxatining tanlab olinishi bilan izohlanadi.
     """)
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 # Yiliga filmlar
@@ -95,9 +121,14 @@ with col_right:
 
     st.markdown("""
     📌 **Tahlil:**  
-    Yillar bo‘yicha filmlar sonining o‘zgarishi kino sanoatining faol davrlarini ko‘rsatadi.  
-    Ayrim yillarda mashhur va klassik filmlar ko‘proq suratga olinganini kuzatish mumkin.
+    Yillar bo‘yicha filmlar soni doimiy emas, ayrim davrlarda keskin o‘sish kuzatiladi.  
+    Bu davrlar kino sanoatining rivojlangan bosqichlari yoki texnologik yutuqlar bilan bog‘liq bo‘lishi mumkin.  
+    Ayrim yillarda pasayish esa urushlar yoki iqtisodiy inqirozlar bilan izohlanadi.
     """)
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 
 # Eng mashhur filmlar
@@ -115,7 +146,11 @@ Ushbu ro‘yxatda IMDb reytingi va ovozlar soni juda yuqori bo‘lgan filmlar ja
 Bu filmlar kino tarixidagi eng muvaffaqiyatli va tomoshabinlar tomonidan eng ko‘p e’tirof etilgan asarlar hisoblanadi.
 """)
 
-# _____________________________________________________________________________________________________________________
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 # Eng kop ovoz olgan top 10 film
 st.subheader("🔥 Eng ko‘p ovoz olgan Top 10 filmlar")
@@ -127,7 +162,204 @@ st.markdown("""
 📌 **Tahlil:**  
 Ushbu filmlar eng ko‘p tomoshabin tomonidan baholangan bo‘lib, ularning ommabopligi juda yuqori.
 """)
+st.markdown("""
+📌 **Tahlil:**  
+Bu filmlar eng ko‘p tomoshabin tomonidan baholangan bo‘lib, ularning ommabopligi juda yuqori.  
+Ko‘p ovozlar filmning mashhurligini bildiradi, lekin har doim ham yuqori reytingni kafolatlamaydi.  
+Bu ko‘rsatkich auditoriya qamrovini baholashda muhim rol o‘ynaydi.
+""")
+
 st.success("🏆 Top 10 filmlar tahlili tayyor")
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+st.subheader("📊 Eng ko‘p ko‘rilgan rejissyorlar (Top 10)")
+
+# Ba'zi filmlarda bir nechta rejissyor bo‘lishi mumkin → split qilamiz
+directors_df = df.copy()
+directors_df["Directors"] = directors_df["Directors"].str.split(", ")
+directors_df = directors_df.explode("Directors")
+
+# Har bir rejissyor bo‘yicha umumiy votes
+top_directors_votes = (
+    directors_df.groupby("Directors")["Num Votes"]
+    .sum()
+    .sort_values(ascending=False)
+    .head(10)
+    .reset_index()
+)
+
+fig_votes = px.bar(
+    top_directors_votes,
+    x="Directors",
+    y="Num Votes",
+    title="Top 10 rejissyor — filmlarining umumiy ovozlar soni",
+)
+
+st.plotly_chart(fig_votes, use_container_width=True)
+
+st.markdown("""
+📌 **Tahlil:**  
+Grafik ayrim rejissyorlarning filmlari juda katta auditoriyani jalb qilganini ko‘rsatadi.  
+Bu holat ularning filmlari ommabop mavzularni qamrab olgani yoki keng tarqalgan franchayzlar bilan bog‘liq.  
+Ovozlar soni mashhurlikni bildiradi, lekin sifatni to‘liq ifodalamaydi.
+""")
+
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+st.subheader("⭐ Rejissyorlar bo‘yicha o‘rtacha IMDb reyting")
+
+top_directors_rating = (
+    directors_df.groupby("Directors")["IMDb Rating"]
+    .mean()
+    .sort_values(ascending=False)
+    .head(10)
+    .reset_index()
+)
+
+fig_rating = px.bar(
+    top_directors_rating,
+    x="Directors",
+    y="IMDb Rating",
+    title="Top 10 rejissyor — o‘rtacha IMDb reyting",
+)
+
+st.plotly_chart(fig_rating, use_container_width=True)
+
+st.markdown("""
+📌 **Tahlil:**  
+Bu grafik rejissyorlarning filmlari sifat jihatdan qanchalik yuqori baholanganini ko‘rsatadi.  
+Ba’zi rejissyorlar kam film suratga olgan bo‘lsa ham, ularning reytingi yuqori.  
+Bu sifat har doim miqdordan ustun bo‘lishi mumkinligini ko‘rsatadi.
+""")
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+st.header("🎭 Janrlar va yillar bo‘yicha tahlil")
+st.subheader("📅 Yillar bo‘yicha janrlar taqsimoti")
+
+# Janrlarni alohida qatorlarga ajratamiz
+genres_df = df.copy()
+genres_df["Genres"] = genres_df["Genres"].str.split(", ")
+genres_df = genres_df.explode("Genres")
+
+# Yil + janr bo‘yicha filmlar soni
+genre_year_count = (
+    genres_df.groupby(["Year", "Genres"])
+    .size()
+    .reset_index(name="Movie Count")
+)
+
+# Eng ko‘p uchraydigan 5 ta janrni olamiz (grafik chiroyli bo‘lishi uchun)
+top_genres = (
+    genre_year_count.groupby("Genres")["Movie Count"]
+    .sum()
+    .sort_values(ascending=False)
+    .head(5)
+    .index
+)
+
+filtered_data = genre_year_count[genre_year_count["Genres"].isin(top_genres)]
+
+fig_genre_year = px.line(
+    filtered_data,
+    x="Year",
+    y="Movie Count",
+    color="Genres",
+    title="Yillar bo‘yicha eng mashhur janrlar",
+)
+
+st.plotly_chart(fig_genre_year, use_container_width=True)
+
+st.markdown("""
+📌 **Tahlil:**   
+Ushbu grafik turli yillarda qaysi janrdagi filmlar ko‘proq suratga olinganini ko‘rsatadi.  
+Ayrim davrlarda Drama va War janrlarining keskin oshgani kuzatiladi.  
+Bu holat tarixiy voqealar, xususan Ikkinchi jahon urushi va undan keyingi ijtimoiy jarayonlar bilan bog‘liq bo‘lishi mumkin.
+""")
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+st.subheader("🏭 Eng ko‘p film suratga olingan yillar")
+
+movies_per_year = (
+    df.groupby("Year")
+    .size()
+    .reset_index(name="Movie Count")
+    .sort_values("Movie Count", ascending=False)
+    .head(10)
+)
+
+fig_years = px.bar(
+    movies_per_year,
+    x="Year",
+    y="Movie Count",
+    title="Top 10 eng sermahsul yillar",
+)
+
+st.plotly_chart(fig_years, use_container_width=True)
+st.markdown("""
+📌 **Tahlil:**   
+Bu grafik eng ko‘p film suratga olingan yillarni ko‘rsatadi.  
+Bu davrlar kino sanoatining rivojlanishi, texnologik yutuqlar yoki jamiyatda kino orqali fikr bildirish ehtiyoji kuchaygan davrlarga to‘g‘ri kelishi mumkin.
+""")
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+st.header("🎯 Janrlar bo‘yicha(Top 5), eng sermahsul yillar")
+
+# Janrlarni alohida qatorlarga ajratamiz
+genre_peak_df = df.copy()
+genre_peak_df["Genres"] = genre_peak_df["Genres"].str.split(", ")
+genre_peak_df = genre_peak_df.explode("Genres")
+
+# Janr + yil bo‘yicha filmlar soni
+genre_year_counts = (
+    genre_peak_df.groupby(["Genres", "Year"])
+    .size()
+    .reset_index(name="Movie Count")
+)
+
+# Har bir janr uchun eng ko‘p film olingan yil
+idx = genre_year_counts.groupby("Genres")["Movie Count"].idxmax()
+genre_peak_years = genre_year_counts.loc[idx].sort_values("Movie Count", ascending=False)
+
+# Faqat eng yuqori 8 janrni olish
+genre_peak_years = genre_peak_years.head(5)
+
+# Natijalarni chiqarish
+for _, row in genre_peak_years.iterrows():
+    st.markdown(f"""
+> 🎭 **{row['Genres']}**  
+> 📅 Eng ko‘p film olingan yil: **{int(row['Year'])}**  
+> 🎬 Film soni: **{row['Movie Count']} ta**
+""")
+
+# Umumiy izoh
+st.markdown("""
+💡 **Izoh:** Ushbu janrlarning eng sermahsul yillari o‘sha davrdagi ijtimoiy, tarixiy yoki madaniy jarayonlar bilan bog‘liq bo‘lishi mumkin.
+""")
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 # IMDb reytingi va ovozlar soni farqi
 st.subheader("📊 IMDb reyting va ovozlar soni o‘rtasidagi bog‘liqlik")
@@ -145,8 +377,15 @@ st.pyplot(fig)
 
 st.markdown("""
 📌 **Tahlil:**  
-Ko‘p ovozga ega filmlar odatda barqaror va ishonchli reytingga ega ekanini ko‘rish mumkin.
+Ko‘p ovozga ega filmlar odatda barqaror reytingga ega ekanini ko‘rish mumkin.  
+Ammo ayrim filmlar kam ovoz bilan yuqori reyting olgan — bu tor auditoriyaga mo‘ljallangan filmlar bo‘lishi mumkin.  
+Demak, reyting va mashhurlik har doim ham bir xil bo‘lmaydi.
 """)
+
+
+# +++++++++++++++++++++++++++++++++++++++++-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 # Filmlar davomiyligi taqsimoti
 st.subheader("⏱ Film davomiyligi taqsimoti")
@@ -159,8 +398,16 @@ st.pyplot(fig)
 
 st.markdown("""
 📌 **Tahlil:**  
-Filmlarning aksariyati 90–180 daqiqa oralig‘ida bo‘lib, bu kino sanoatidagi standart davomiylikni ko‘rsatadi.
+Filmlarning katta qismi 90–180 daqiqa oralig‘ida joylashgan.  
+Bu kino sanoatida optimal davomiylik mavjudligini ko‘rsatadi.  
+Juda qisqa yoki juda uzun filmlar kam uchraydi, chunki ular tomoshabin e’tiborini yo‘qotishi mumkin.
 """)
+
+
+# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 
 # Eng yaxshi rejiseorlar va filmlari soni
 st.subheader("🎬 Eng yaxshi rejissyorlar (o‘rtacha reyting)")
@@ -184,8 +431,14 @@ st.dataframe(top_directors)
 
 st.markdown("""
 📌 **Tahlil:**  
-Bir nechta yuqori reytingli filmlarga ega bo‘lgan rejissyorlar kino sifatini barqaror saqlab kelmoqda.
+Ushbu jadval bir nechta film suratga olgan va o‘rtacha IMDb reytingi yuqori bo‘lgan rejissyorlarni ko‘rsatadi.  
+Bu rejissyorlar filmlarida **sifat barqarorligi** kuzatiladi va ularning ishlari tomoshabinlar tomonidan yuqori baholanadi.
 """)
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 
 # Yillar buyicha filmlar tahlili
 st.subheader("📅 O‘n yilliklar bo‘yicha filmlar tahlili")
@@ -204,8 +457,15 @@ st.dataframe(decade_stats)
 
 st.markdown("""
 📌 **Tahlil:**  
-Ayrim o‘n yilliklar kino tarixida eng samarali davr bo‘lganini ko‘rish mumkin.
+Jadvaldan ko‘rinib turibdiki, ayrim o‘n yilliklarda filmlar soni va o‘rtacha reyting yuqoriroq bo‘lgan.  
+Bu davrlar kino sanoatining eng faol va samarali bosqichlari ekanini ko‘rsatadi.
 """)
+
+
+# +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
 # _____________________________________________________________________________________________________________________
 
 st.sidebar.markdown("---")
@@ -230,12 +490,14 @@ with st.sidebar.expander("👨‍💻 Developers"):
 > 📬 [Telegram](https://t.me/Saidov_1004)  
 > 🎛️ [Instagram](https://instagram.com/USERNAME)
 ---
-> **👤 S. Sarvara**  
+> **👤 Samadova Sarvara**  
 > _Python • Data Analysis • Streamlit • AI_  
 > 🔗 [GitHub](https://github.com/USERNAME)  
 > 📬 [Telegram](https://t.me/Hadria1300)  
 > 🎛️ [Instagram](https://instagram.com/USERNAME)
 """)
+    
+
 # ___________________________________________________________________________________________________________________
 
     st.markdown("---")
