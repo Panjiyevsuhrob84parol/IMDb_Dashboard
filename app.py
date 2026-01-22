@@ -90,13 +90,13 @@ st.markdown("---")
 
 col_left, col_right = st.columns(2)
 
-# Reytingni taqsimlash
+# ⭐Reytingni taqsimlash
 with col_left:
     st.subheader("⭐ Reyting taqsimoti")
     fig, ax = plt.subplots()
     sns.histplot(filtered_df["IMDb Rating"], bins=10, kde=True, ax=ax)
-    ax.set_xlabel("IMDb Rating")
-    ax.set_ylabel("Count")
+    ax.set_xlabel("IMDb reytingi")
+    ax.set_ylabel("Soni")
     st.pyplot(fig)
 
     st.markdown("""
@@ -193,8 +193,8 @@ top_directors_votes = (
 
 fig_votes = px.bar(
     top_directors_votes,
-    x="Directors",
-    y="Num Votes",
+    x="Direktorlar",
+    y="Ovozlar soni",
     title="Top 10 rejissyor — filmlarining umumiy ovozlar soni",
 )
 
