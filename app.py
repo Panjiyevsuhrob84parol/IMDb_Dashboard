@@ -520,7 +520,7 @@ Python • Data Analysis • Streamlit<br>
 <hr>
 <b>👤 Komilova Charos</b><br>
 Python • Data Analysis • Streamlit • AI<br>
-<a href="https://github.com/USERNAME" target="_blank">
+<a href="https://github.com/charoskomilova1041-hub" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/24/25/25231.png" width="20"> GitHub
 </a> &nbsp; 
 <a href="https://t.me/Charos123340" target="_blank">
