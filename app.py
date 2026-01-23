@@ -193,10 +193,11 @@ top_directors_votes = (
 
 fig_votes = px.bar(
     top_directors_votes,
-    x="Direktorlar",
-    y="Ovozlar soni",
+    x="Directors",
+    y="Num Votes",
     title="Top 10 rejissyor — filmlarining umumiy ovozlar soni",
 )
+
 
 st.plotly_chart(fig_votes, use_container_width=True)
 
