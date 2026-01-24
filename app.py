@@ -12,9 +12,32 @@ st.set_page_config(
     layout="wide"
 )
 
-# Title
-st.title("🎬 IMDb Top Movies Dashboard")
-st.markdown("IMDb Top kinolar ma’lumotlari asosida interaktiv tahlil")
+st.markdown("""
+<style>
+.dashboard-title {
+    background: linear-gradient(90deg, #ff512f, #dd2476);
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+.dashboard-title h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+.dashboard-title p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+</style>
+
+<div class="dashboard-title">
+    <h1>🎬 IMDb Top Movies Dashboard</h1>
+    <p>IMDb Top kinolar ma’lumotlari asosida interaktiv tahlil</p>
+</div>
+""", unsafe_allow_html=True)
+
 
 # ma'lumotlarni yuklash
 @st.cache_data  # “Agar data o‘zgarmagan bo‘lsa, qayta o‘qima, tez ishlat” , Streamlitga shunaqa deb aytadi.
